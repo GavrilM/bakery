@@ -1,0 +1,175 @@
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Neo Bake</title>
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="css/reset.css">
+
+    
+        <link rel="stylesheet" href="styles/style.css">
+
+    
+    
+    
+  </head>
+
+  <body>
+
+    <header>
+
+</header>
+
+<div class="animate-hide animate-container">
+  <div class="animate-item animate-inout">
+    <h1 class="">Welcome</h1>
+  <h1 class="">To</h1>
+  <h1 class="">Clean Plate!</h1>
+  </div>
+  <div class="animate-inout animate-inter ">
+      <h1>A Gluten-Free</h1>
+      <h1>Establishment!</h1>
+  </div>
+  <h1 class="animate-inout animate-fourth">Both a</h1>
+  
+</div>
+
+
+<div class="body-content">
+
+
+  <div class="split-container">
+    <input type="radio" id = "choosetop" name="sidechoose"/>
+    <input type="radio" id = "choosemid" name="sidechoose" checked/>
+    <input type="radio" id = "choosebottom" name="sidechoose"/>
+    <div class="split-slider" id="slider">
+      <div id="upper">
+        <nav>
+          <ul class="flex-center">
+            <label for="topview1">Order</label>
+            <label for="topview2">Bakery</label>
+            <label for="topview3">Menu</label>
+          </ul>
+        </nav>
+        <div class="slider-container">
+          <input type="radio" name="topview" id="topview1"/>
+          <input type="radio" name="topview" id="topview2" checked/>
+          <input type="radio" name="topview" id="topview3"/>
+          <div class="slider-content">
+            <div class="slider-item" id="order"></div>
+            <div class="slider-item" id="bakery">
+                <div class="flex-center">
+                    <h1>Welcome to the Bakery!</h1>
+                    <p>
+
+                    </p>
+                </div>
+            </div>
+            <div class="slider-item" id="menu-bake">
+                <div class="flex-around">
+                    {{#each item}}
+                        {{> item}}
+                    {{/each}}
+                </div>
+              <label for="choosebottom" class="switchmenu">Other Menu?</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="mid" >
+        <div id="topside" class="flex-center">
+            <h1 class="animate-reveal animate-fifth">Bakery</h1>
+            <div class="bg-cover"></div>
+        </div>
+        <div id="bottomside" class="flex-center">
+            <h1 class="animate-reveal animate-sixth">Restaurant</h1>
+            <div class="bg-cover"></div>
+        </div>
+      </div>
+      <div id="lower" class="flex-center">
+        <nav>
+          <ul class="flex-center">
+            <label for="bottomview1">Reserve</label>
+            <label for="bottomview2">Restaurant</label>
+            <label for="bottomview3">Menu</label>
+          </ul>
+        </nav>
+        <div class="slider-container">
+          <input type="radio" name="bottomview" id="bottomview1"/>
+          <input type="radio" name="bottomview" id="bottomview2" checked/>
+          <input type="radio" name="bottomview" id="bottomview3"/>
+          <div class="slider-content" >
+            <div class="slider-item" id="reserve"></div>
+            <div class="slider-item" id="restaurant"></div>
+            <div class="slider-item" id="menu-rest">
+              <label for="choosetop" class="switchmenu">Other Menu?</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="center-nav">
+    <input name="toggler" type= "checkbox" id="toggler" unchecked>
+					    <input name="resizer" type= "checkbox" id="resizer" unchecked>
+    <span id="closer" class="lnr lnr-cross hidden"></span>
+    <div class="circle flex-center animate-circle" id="circle">
+      <nav style = "transition: display 300ms ease;">
+        							<ul class="flex-center">
+        								<label for="choosetop" data-template="1" class="nav-item lnr lnr-pencil">
+        								   <div data-template="1">Order</div>
+        								</label>
+        								<label for="choosetop" data-template="2" class="nav-item lnr lnr-store">
+        								   <div data-template="2" id="bakeslide">Bakery</div>
+        								  </label>
+                     
+        <label class="nav-expand lnr lnr-question-circle" for="resizer">
+        								  <div>About Us</div>
+        								</label>
+         <label class="nav-expand lnr lnr-diamond" for="resizer">
+        								  <div>Gluten-Free?</div>
+        								</label>
+        
+        								
+        							</ul>
+        						</nav>
+        						<label for="toggler" class="toggle" id="clicker"><span class="lnr lnr-mustache"></span></label>
+                                <div class="hidden flex-center" id="center-content">
+                                    {{> Template.dynamic template = tab}}
+                                </div>
+        						<nav>
+        							<ul  class="flex-center">
+        							<label for="choosetop" data-template="3" class="nav-item lnr lnr-store">
+        								   <div data-template="3">Menu</div>
+        								</label>   
+        <label class="nav-expand lnr lnr-diamond" for="resizer">
+        								  <div>Reviews</div>
+        								</label>
+        								<label for="choosebottom" data-template="2" class="nav-item lnr lnr-home">
+        								  <div data-template="2" id="restslide">Restaurant</div>
+        								</label>
+        								<label for="choosebottom" data-template="1" class="nav-item lnr lnr-book">
+        								  <div data-template="1" >Reserve</div>
+        								</label>
+        							</ul>
+        						</nav>
+
+
+    </div>
+  </div>
+</div>
+
+<footer>
+
+</footer>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+
