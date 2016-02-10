@@ -30,6 +30,8 @@ header {
   z-index: 100;
   width: 100%;
   height: 7vh;
+  color:white;
+  font-size: 6vh;
 }
 
 footer {
@@ -53,6 +55,38 @@ footer {
   flex-wrap: wrap;
   align-content: space-around;
 }
+#popin{
+  position: fixed;
+  margin-top: -100vh;
+  transition: margin-top 400ms ease-in-out,
+  top 400ms ease-in-out;
+  height:80vh;
+  padding:5px;
+  background-color:white;
+  border-radius: 20px;
+  width: 80vw;
+  left:50%;
+  margin-left: -40vw;
+  top:auto;
+}
+
+#popin h3{
+  width: 80vw;
+  text-align:center;
+}
+.seeable{
+  top: 50% !important;
+  margin-top: -35vh !important;
+  z-index:3000;
+}
+.covering{
+  height:100vh;
+  width:100vw;
+  position: fixed;
+  z-index: 2999;
+  background-color: grey;
+  opacity: .25;
+}
 /*--------------------------*/
 /* Main Body */
 /*--------------------------*/
@@ -73,7 +107,7 @@ footer {
 }
 
 
-.split-slider div {
+.split-slider > div {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -192,7 +226,11 @@ footer {
   top:7vh;
   right:8vw;
 }
+.menuitem{
+  padding:10px;
+  font-size: 1.25em;
 
+}
 
 /*-----------------------*/
 /* Slider*/
@@ -444,8 +482,8 @@ Animate
   height:100vh;
   -webkit-animation: hide 5s cubic-bezier(0, 1, 0.5, 1) 3s 1 normal forwards;
    animation: hide 5s cubic-bezier(0, 1, 0.5, 1) 3s 1 normal forwards;
-  webkit-animation-delay: 4.5s !important;
-          animation-delay: 4.5s !important;
+  webkit-animation-delay: 4.8s !important;
+          animation-delay: 4.8s !important;
 
 }
 
@@ -524,8 +562,8 @@ Animate
 
 .animate-fifth {
   top:40vh;
-  -webkit-animation-delay: 4.75s;
-          animation-delay: 4.75s;
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
 }
 
 .animate-sixth {

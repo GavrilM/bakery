@@ -79,6 +79,19 @@ Template.body.events({
         processnavs($(".circle nav"));
         $("#restslide").trigger("click");
     },
+    "click #body-cover" : function(e){
+        $('#popin').removeClass("seeable");
+        $('#body-cover').removeClass("covering");
+    },
+    "submit #orderform" : function(e,t){
+        var form = e.target;
+        var elements = form.elements;
+        $('#popin').addClass("seeable");
+        $('#body-cover').addClass("covering");
+        for( var i = 0; i< elements.length; i++){
+            elements[i].value = "";
+        }
+    }
 
 });
 
@@ -103,10 +116,10 @@ function resetcircle(circle){
 function processnavs(navs){
     if ($("#toggler").prop('checked')) {
 
-        for (var i = 0; i < navs.length; i++) {
-            $(navs[i]).addClass("viewable");
+            for (var i = 0; i < navs.length; i++) {
+                $(navs[i]).addClass("viewable");
 
-        }
+            }
 
     } else  {
 

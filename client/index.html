@@ -16,9 +16,12 @@
   </head>
 
   <body>
-
+  <div id="body-cover"></div>
+  <div id="popin">
+      <h3>{{ message }}</h3>
+  </div>
     <header>
-
+    Clean Plate: {{gettab}}
 </header>
 
 <div class="animate-hide animate-container">
@@ -68,9 +71,10 @@
             </div>
             <div class="slider-item" id="menu-bake">
                 <div class="flex-around">
-                    {{#each item}}
-                        {{> item}}
+                    {{#each bread}}
+                        {{> menuitem}}
                     {{/each}}
+                    <button id="additem" >+</button>
                 </div>
               <label for="choosebottom" class="switchmenu">Other Menu?</label>
             </div>
