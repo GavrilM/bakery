@@ -36,3 +36,32 @@
     </div>
 
 </template>
+
+<template name="itemdetails">
+    <button class="backbutton">Back</button>
+    <h3>{{name}}</h3>
+    <img alt="Picture" src={{img}} >
+    Calories: {{calories}}
+</template>
+
+<template name="confirm">
+    <h1>Success! Swing by in about 15 minutes to pick up your order.</h1>
+</template>
+
+<template name="salads">
+    {{#each salads}}
+        {{> menuitem}}
+    {{/each}}
+</template>
+
+<template name="entrees">
+    {{#each entrees}}
+        {{> menuitem}}
+    {{/each}}
+</template>
+
+<template name="kids">
+    {{#each kids}}
+        {{> menuitem}}
+    {{/each}}
+</template>

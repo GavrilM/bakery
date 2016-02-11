@@ -91,7 +91,16 @@ Template.body.events({
         for( var i = 0; i< elements.length; i++){
             elements[i].value = "";
         }
-    }
+    },
+    "click #menu-rest button" : function(e,t){
+        window.popup.set($(e.target).data('template'));
+        console.log($(e.target));
+        console.log($(e.target).data('template'));
+        console.log(window.popup.get());
+        $('#popin').addClass("seeable");
+        $('#body-cover').addClass("covering");
+    },
+
 
 });
 
@@ -130,3 +139,33 @@ function processnavs(navs){
 
     }
 }
+
+
+Template.menuitem.events({
+    "click .menuitem"  : function(e,t){
+        window.popup.set('itemdetails');
+        console.log(this);
+        Session.set('data', this );
+    },
+
+});
+
+Template.itemdetails.events({
+    "click .backbutton" : function(){
+
+        if(this.type){
+            if(this.type == 'salad'){
+                window.popup.set('salads');
+            }
+            if(this.type == 'entree'){
+                window.popup.set('entrees');
+            }
+            if(this.type == 'kids'){
+                window.popup.set('kids');
+            }
+        }
+        else{
+            $('#body-cover').trigger("click");
+        }
+    }
+});

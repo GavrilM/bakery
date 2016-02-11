@@ -47,6 +47,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  align-content: center;
 }
 .flex-around{
   display: flex;
@@ -107,7 +108,7 @@ footer {
 }
 
 
-.split-slider > div {
+.split-slider  div {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -211,7 +212,9 @@ footer {
   bottom: 20vh;
   right:5vw;
 }
-
+#menu-bake .flex-center{
+  flex-wrap: wrap;
+}
 #reserve{
   background: #E94B25;
 }
@@ -230,6 +233,9 @@ footer {
   padding:10px;
   font-size: 1.25em;
 
+}
+.menuitem img{
+  max-height: 40px;
 }
 
 /*-----------------------*/
@@ -284,6 +290,16 @@ footer {
   overflow:hidden;
   padding:00;
 }
+.slider-item .flex-center{
+  flex-wrap: wrap;
+}
+.slider-item h1{
+  width: 100vw;
+  text-align: center;
+}
+.slider-item p{
+  max-width: 400px;
+}
 #topview1:checked ~ .slider-content{
   transform: translateX(0);
 }
@@ -303,7 +319,10 @@ footer {
   transform: translateX(-66.666%);
 }
 
-
+.menuitem{
+  max-height: 100px;
+  max-width:130px;
+}
 
 
 /*-------------------------
@@ -383,7 +402,9 @@ Center stuff
   margin: 0px 0%;
   font-size: 6vh;
   text-align: center;
-  
+  height: 11vmin;
+  width: 11vmin;
+  background-size: cover;
 }
 
 .circle nav label div,
@@ -393,6 +414,8 @@ Center stuff
 
 .circle label {
   cursor: pointer;
+
+
 }
 
 .circle .toggle {
@@ -469,6 +492,30 @@ Center stuff
 		
 		margin-top:-45vh !important;
 	}
+}
+.nav-order{
+  background-image: url("/order.jpg");
+}
+.nav-bakery{
+  background-image: url("/bakery.jpg");
+}
+.nav-about{
+  background-image: url("/aboutus.jpg");
+}
+.nav-why{
+  background-image: url("/why.jpg");
+}
+.nav-menu{
+  background-image: url("/menu.jpg");
+}
+.nav-reviews{
+  background-image: url("/reviews.jpg");
+}
+.nav-restaurant{
+  background-image: url("restaurant.jpg");
+}
+.nav-reserve{
+  background-image: url("/reserve.jpg");
 }
 
 /*---------------------------

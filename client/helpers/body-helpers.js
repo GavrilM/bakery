@@ -1,5 +1,6 @@
 Template.body.onCreated(function(){
     this.tab = new ReactiveVar("aboutus");
+    window.popup = new ReactiveVar("confirm");
     this.orders = new Mongo.Collection();
     this.orders.insert({
         name : "",
@@ -23,10 +24,35 @@ Template.body.helpers({
             return "Home";
         }
     },
-    message : function(){
-        return Session.get("message");
+    popup : function(){
+        return window.popup.get();
     },
     bread: function(){
         return Bakery.find();
+    },
+    getdata : function(){
+        console.log(Session.get("data"));
+        return Session.get("data");
     }
 });
+
+Template.salads.helpers({
+    salads : function(){
+        return Menu.find({type: "salad"});
+    },
+});
+
+Template.entrees.helpers({
+    entrees : function(){
+        return Menu.find({type: "entree"});
+    },
+});
+
+Template.kids.helpers({
+    kids : function(){
+        return Menu.find({type: "kids"});
+    }
+});
+
+
+
