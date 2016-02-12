@@ -7,72 +7,64 @@ Meteor.startup(function () {
                 fat: 3,
                 carb: 25,
                 protein: 5,
+                descrip: 'Fresh bagels made daily for optimal satisfaction',
                 img: "/img/bagels.jpg"
             },
             {
-                name: "Oatmeal M&M Cookies",
+                name: "Whole Wheat Bread",
                 calories: 250,
                 fat: 6,
                 carb: 33,
                 protein: 4,
+                descrip: 'Made with 100% Gluten free flour',
                 img: "/img/wholewheat.jpg"
             },
             {
-                name: "Peanut Butter Cookies",
-                calories: 100,
-                fat: 6,
-                carb: 10,
-                protein: 2,
-                img: "/img/"
+                name: "Acai Bowl",
+                calories: 450,
+                fat: 20,
+                carb: 73,
+                protein: 9,
+                descrip: 'Power-packed acai bowl with refreshing fruits, granola, and nuts, perfect for starting off the day',
+                img: "/img/acai.png"
             },
             {
-                name: "Double Dark Chocolate Cookies",
-                calories: 130,
-                fat: 6,
-                carb: 11,
-                protein: 1,
-                img: "/img/"
+                name: "Chocolate Pumpkin Oat Bran Muffin",
+                calories: 240,
+                fat: 9,
+                carb: 38,
+                protein: 6,
+                descrip: 'Sweet, fluffy muffins that pair well with a warm tea or coffee in the morning',
+                img: "/img/muffins.jpg"
             },
             {
-                name: "Rich Chocolate Fudge Cake",
-                calories: 250,
-                fat: 4,
-                carb: 26,
-                protein: 4,
-                img: "/img/"
-            },
-            {
-                name: "Pecan Coffee Cake",
-                calories: 230,
-                fat: 7,
+                name: "Lemon Lavender Half Pound Cake",
+                calories: 200,
+                fat: 10,
                 carb: 29,
                 protein: 5,
-                img: "/img/"
+                descrip: 'Light, elegant slices of cake with an aromatic and citrus flavor',
+                img: "/img/pound.jpg"
             },
             {
-                name: "Classic New York Cheesecake",
-                calories: 240,
-                fat: 6,
-                carb: 24,
-                protein: 7,
-                img: "/img/"
-            },
-            {
-                name: "Chocolate Dipped Coconut Macaroons",
-                calories: 50,
-                fat: 1,
-                carb: 8,
-                protein: 2,
-                img: "/img/"
-            },
-            {
-                name: "Cinnamon Rolls",
+                name: "Chocolate Tarts",
                 calories: 200,
                 fat: 6,
                 carb: 15,
                 protein: 2,
+                descrip: 'Creamy, chocolate filling inside of a crispy gluten free pastry bowl',
+                img: "/img/tart.jpg "
+            },
+            {
+                name: "Tricolor Mocha Latte",
+                calories: 257,
+                fat: 5,
+                carb: 34,
+                protein: 3,
+                descrip: 'A refreshing blast of caffeine at any time of the day',
                 img: "/img/"
             },
+
         ];
         _.each(items, function (item) {
             Bakery.insert(item);
@@ -87,6 +79,7 @@ Meteor.startup(function () {
                     fat:8,
                     carb:25,
                     protein:2,
+                    descrip: 'Your favorite Bacon Lettuce Tomato sandwich, but healthier.',
                     img:"/img/bltsalad.jpg",
                     type:'salad'
                 },
@@ -96,6 +89,7 @@ Meteor.startup(function () {
                     fat:5,
                     carb:19,
                     protein:1,
+                    descrip: 'Superfood kale mixed with crunchy bacon and a pinch of parmesan',
                     img:"/img/kalesalad.jpg",
                     type:'salad'
 
@@ -106,6 +100,7 @@ Meteor.startup(function () {
                     fat:2,
                     carb:31,
                     protein:1,
+                    descrip: 'A unique, refreshing twist on a fruit salad',
                     img:"/img/summersalad.jpg",
                     type:'salad'
                 },
@@ -115,6 +110,7 @@ Meteor.startup(function () {
                     fat:4,
                     carb:26,
                     protein:1,
+                    descrip: 'A surprisingly delicious combination of sweet and tangy ',
                     img:"/img/tomatosalad.jpg",
                     type:'salad'
                 },
@@ -124,6 +120,7 @@ Meteor.startup(function () {
                     fat:7,
                     carb:35,
                     protein:16,
+                    descrip: 'Flavorful dish made of fresh crab perfected with herbs and spices',
                     img:"/img/crabcakes.jpg",
                     type:'entree'
                 },
@@ -133,6 +130,7 @@ Meteor.startup(function () {
                     fat:15,
                     carb:30,
                     protein:5,
+                    descrip: 'Classic cheesy, warm, and gooey macaroni served with gluten free bread sticks',
                     img:"/img/maccheese.jpg",
                     type:'entree'
                 },
@@ -142,6 +140,7 @@ Meteor.startup(function () {
                     fat:5,
                     carb:20,
                     protein:19,
+                    descrip: 'Lean cut of free range chicken with crisp asparagus',
                     img:"/img/porkloin.jpg",
                     type:'entree'
                 },
@@ -151,6 +150,7 @@ Meteor.startup(function () {
                     fat:9,
                     carb:24,
                     protein:20,
+                    descrip: 'Tender beef steak paired with a balanced, locally-picked vegetable salad',
                     img:"/img/steak.jpg",
                     type:'entree'
                 },
@@ -160,6 +160,7 @@ Meteor.startup(function () {
                     fat:13,
                     carb:38,
                     protein:5,
+                    descrip: 'Al Dente pasta packed with juicy tomato sauce and mozzarella ',
                     img:"/img/pasta.jpg",
                     type:'entree'
                 },
@@ -169,16 +170,8 @@ Meteor.startup(function () {
                     fat:10,
                     carb:29,
                     protein:15,
+                    descrip: 'Gluten free bread pressed to a crisp with the classic Italian combination',
                     img:"/img/capresepanini.jpg",
-                    type:'entree'
-                },
-                                {
-                    name : "Seared New York Strip Steak",
-                    calories:670,
-                    fat:10,
-                    carb:19,
-                    protein:23,
-                    img:"/img/nysteak.jpg",
                     type:'entree'
                 },
                 {
@@ -187,6 +180,7 @@ Meteor.startup(function () {
                     fat:7,
                     carb:27,
                     protein:6,
+                    descrip: 'Classic made with in-house baked English muffins, smokey pepperoni, and mozzarella cheese',
                     img:"/img/minipizza.jpg",
                     type:'kids'
                 },
@@ -196,6 +190,7 @@ Meteor.startup(function () {
                     fat:13,
                     carb:38,
                     protein:5,
+                    descrip: 'Juicy, tender chicken with an extra crunchy pretzel based exterior',
                     img:"/img/chickenfingers.jpg",
                     type:'kids'
                 },
@@ -205,6 +200,7 @@ Meteor.startup(function () {
                     fat:4,
                     carb:29,
                     protein:10,
+                    descrip: 'Delicious, healthy, and easy to eat',
                     img:"/img/wraps.jpg",
                     type:'kids'
                 },

@@ -1,8 +1,10 @@
 Template.body.onCreated(function(){
     this.tab = new ReactiveVar("aboutus");
+    this.side = new ReactiveVar(0);
     window.popup = new ReactiveVar("confirm");
-    this.orders = new Mongo.Collection();
-    this.orders.insert({
+    $('#datetimepicker').datepicker();
+    window.orders = new Mongo.Collection();
+    window.orders.insert({
         name : "",
         amount: 0
     });
@@ -33,6 +35,21 @@ Template.body.helpers({
     getdata : function(){
         console.log(Session.get("data"));
         return Session.get("data");
+    },
+    ontop : function(){
+        console.log(Template.instance().side.get());
+        return Template.instance().side.get() >0;
+    },
+    onmid : function(){
+        console.log(Template.instance().side.get());
+        return Template.instance().side.get() == 0;
+    },
+    onbottom : function(){
+        console.log(Template.instance().side.get());
+        return Template.instance().side.get() < 0;
+    },
+    order: function(){
+        return window.orders.find();
     }
 });
 

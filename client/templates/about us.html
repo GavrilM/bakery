@@ -19,20 +19,69 @@
     <div id="glutenfree">
         <h1>Why Gluten Free?</h1>
         <p>
-
+            Gluten is a general name for proteins found in wheat, rye,
+            barley, and triticale. Gluten acts as the “glue” that holds
+            together the ingredients that make up foods. 1% of Americans
+            have a genetic, autoimmune disorder called celiac disease,
+            which can cause problems for their small intestine if they
+            digest gluten products. However, other people have chosen
+            to go on a gluten free diet to cleanse their body and feel
+            revitalized. We would like to cater to all of those who
+            have restricted diets or would just simply like to try out
+            a new style of food.
         </p>
+           <p>The health of our customers is one of the driving forces
+               of our business. It is reasonable thinking that a community
+               that is alive and energized will be just as positive and
+               productive. From children to senior citizens, all members of
+               the community should know how clean, healthy food should taste
+               like. As providers, we care the most for tending to the people
+               around us so that they can reach their highest potential. It all
+               starts with what they eat.</p>
+
+
     </div>
 </template>
 
+<template name="contact">
+
+</template>
+
+<template name="reviews">
+
+</template>
+
+<template name="rewards">
+    <h1>Good Karma.</h1>
+    <p>
+    Sign up today to join in on our loyalty program and receive rewards!
+    You will be notified through email about future special events,
+    seasonal items, and various opportunities at locations near you.
+    </p>
+    {{> loginButtons}}
+    <p>
+    Our rewards are simple: <br>
+    1. If you leave a review after your first visit, you get 30% off your next purchase.<br>
+    2. For every 10th visit, you get a 2 free items from our bakery.<br>
+    3. For each item or meal, your account will gain 1 point.<br>
+    4. Once you reach 100 points, we will mail you the legendary GOLD CARD that lets our staff know that you get 10% off of every purchase (applicable once per day).<br>
+
+    </p>
+
+</template>
+
 <template name="item">
+    <div class="item">
     <label for="">Item Name: </label><input type="text" value = {{name}}>
-    Quantity: <input type="number" max = 100 value={{amount}}>
+        <label for="">Quantity:</label> <input type="number" min = 0 max = 100 value={{amount}}><span class="lnr lnr-cross"></span>
+    </div>
 </template>
 
 <template name="menuitem">
-    <div class="menuitem">
-        {{name}}
+    <div class="menuitem flex-center">
         <img alt="Picture" src={{img}} >
+        <span>{{name}}</span>
+
     </div>
 
 </template>
@@ -46,6 +95,7 @@
 
 <template name="confirm">
     <h1>Success! Swing by in about 15 minutes to pick up your order.</h1>
+    <button>OK</button>
 </template>
 
 <template name="salads">

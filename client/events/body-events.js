@@ -1,5 +1,6 @@
 Template.body.events({
     "click #toggler": function(e){
+        Template.instance().side.set(0);
         var navs = $(".circle nav");
         if(!$("#choosemid").prop('checked')){
             e.preventDefault();
@@ -12,7 +13,7 @@ Template.body.events({
         processnavs(navs);
     },
     "click #resizer": function(e){
-        var icons = $(".circle .lnr");
+        var icons = $(".circle label");
         for (var j = 0; j < icons.length; j++) {
             $(icons[j]).removeClass("viewable");
             $(icons[j]).addClass("hidden");
@@ -25,7 +26,7 @@ Template.body.events({
         centercircle($("#circle"));
     },
     "click #closer": function(e){
-        var icons = $(".circle .lnr");
+        var icons = $(".circle label");
         for (var j = 0; j < icons.length; j++) {
             $(icons[j]).addClass("viewable");
             $(icons[j]).removeClass("hidden");
@@ -47,11 +48,13 @@ Template.body.events({
             circle.addClass('navonbottom');
             circle.removeClass('navontop');
             $($("#lower label")[target.data('template')-1]).trigger("click");
+            Template.instance().side.set(-1);
         }
         else if(target.attr('for') == "choosetop"){
             circle.addClass('navontop');
             circle.removeClass('navonbottom');
             $($("#upper label")[target.data('template')-1]).trigger("click");
+            Template.instance().side.set( 1);
         }
     },
     "click .switchmenu": function(e){
@@ -71,6 +74,7 @@ Template.body.events({
         }
         processnavs($(".circle nav"));
         $("#bakeslide").trigger("click");
+        Template.instance().side.set( 1);
     },
     "click #bottomside": function(e){
         if(!$("#toggler").prop("checked")){
@@ -78,20 +82,24 @@ Template.body.events({
         }
         processnavs($(".circle nav"));
         $("#restslide").trigger("click");
+        Template.instance().side.set(-1);
     },
     "click #body-cover" : function(e){
         $('#popin').removeClass("seeable");
         $('#body-cover').removeClass("covering");
     },
-    "submit #orderform" : function(e,t){
+    "submit #order" : function(e,t){
+        e.preventDefault();
         var form = e.target;
         var elements = form.elements;
+        window.popup.set("confirm");
         $('#popin').addClass("seeable");
         $('#body-cover').addClass("covering");
         for( var i = 0; i< elements.length; i++){
             elements[i].value = "";
         }
     },
+
     "click #menu-rest button" : function(e,t){
         window.popup.set($(e.target).data('template'));
         console.log($(e.target));
@@ -100,6 +108,27 @@ Template.body.events({
         $('#popin').addClass("seeable");
         $('#body-cover').addClass("covering");
     },
+    "click .nav-about" :function(){
+        Template.instance().tab.set("aboutus");
+    },
+    "click .nav-why" :function(){
+        Template.instance().tab.set("glutenfree");
+    },
+    "click .nav-contact" :function(){
+        Template.instance().tab.set("contact");
+    },
+    "click .nav-reviews" :function(){
+        Template.instance().tab.set("reviews");
+    },
+    "click .nav-rewards" :function(){
+        Template.instance().tab.set("rewards");
+    },
+    "click #additem" : function(e,t){
+        window.orders.insert({
+            name : "",
+            amount: 0
+        });
+    }
 
 
 });
@@ -169,3 +198,15 @@ Template.itemdetails.events({
         }
     }
 });
+
+Template.item.events({
+   "click .lnr-cross" : function(){
+        window.orders.remove({_id: this._id});
+   }
+});
+
+Template.confirm.events({
+    "click button" : function(){
+        $('#body-cover').trigger("click");
+    }
+})

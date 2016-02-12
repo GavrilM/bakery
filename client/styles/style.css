@@ -33,6 +33,10 @@ header {
   color:white;
   font-size: 6vh;
 }
+button, submit{
+  border: none;
+  background: none;
+}
 
 footer {
   position: relative;
@@ -232,12 +236,22 @@ footer {
 .menuitem{
   padding:10px;
   font-size: 1.25em;
-
+  text-align: center;
+  flex-wrap: wrap;
+  background: #FFDF80;
+  border-radius: 10px;
+  margin: 7px;
 }
 .menuitem img{
-  max-height: 40px;
-}
+  max-height: 15vh;
 
+}
+.menuitem span{
+  width:100%;
+}
+#reserve input, #order input{
+  display: inline;
+}
 /*-----------------------*/
 /* Slider*/
 /*-----------------------*/
@@ -320,11 +334,21 @@ footer {
 }
 
 .menuitem{
-  max-height: 100px;
+  max-height: 120px;
   max-width:130px;
 }
-
-
+.item{
+  display: flex;
+  width: 90vw !important;
+  height: 30px !important;
+}
+.item label{
+  font-size: 1.5em !important;
+  border:none !important;
+}
+.item span{
+  font-size: 1.7em;
+}
 /*-------------------------
 Center stuff
 --------------------------*/
@@ -337,8 +361,11 @@ Center stuff
     width: 60vw;
     max-width: 700px;
 }
-#aboutus h1{
+.center-nav h1{
 
+}
+#login-buttons input{
+  display: inline !important;
 }
 /*--------------------------*/
 /* Circle */
@@ -402,9 +429,7 @@ Center stuff
   margin: 0px 0%;
   font-size: 6vh;
   text-align: center;
-  height: 11vmin;
-  width: 11vmin;
-  background-size: cover;
+
 }
 
 .circle nav label div,
@@ -414,13 +439,16 @@ Center stuff
 
 .circle label {
   cursor: pointer;
-
+  height: 8vmax;
+  width: 8vmax;
+  background-size: cover;
 
 }
 
 .circle .toggle {
   font-size: 8vmax;
   height:8vmax;
+  background-image: url("/circlelogo.png");
 }
 
 .circle{
@@ -494,28 +522,34 @@ Center stuff
 	}
 }
 .nav-order{
-  background-image: url("/order.jpg");
+  background-image: url("/order.png");
 }
 .nav-bakery{
-  background-image: url("/bakery.jpg");
+  background-image: url("/bakery.png");
 }
 .nav-about{
-  background-image: url("/aboutus.jpg");
+  background-image: url("/about.png");
 }
 .nav-why{
-  background-image: url("/why.jpg");
+  background-image: url("/gluten.png");
 }
 .nav-menu{
-  background-image: url("/menu.jpg");
+  background-image: url("/menu.png");
 }
 .nav-reviews{
-  background-image: url("/reviews.jpg");
+  background-image: url("/reviews.png");
 }
 .nav-restaurant{
-  background-image: url("restaurant.jpg");
+  background-image: url("restaurant.png");
 }
 .nav-reserve{
-  background-image: url("/reserve.jpg");
+  background-image: url("/reserve.png");
+}
+.nav-contact{
+  background-image: url("/contactus.png");
+}
+.nav-rewards{
+  background-image: url("/rewards.png");
 }
 
 /*---------------------------
@@ -567,8 +601,8 @@ Animate
   width: 70vw;
   font-size: 3em;
   margin-left: -35vw;
-  -webkit-animation-delay: 0;
-  animation-delay: 0;
+  -webkit-animation-delay: .4s;
+  animation-delay: .4s;
   font-family: brewery;
 }
 
