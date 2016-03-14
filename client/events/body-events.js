@@ -7,10 +7,11 @@ Template.body.events({
             centercircle($("#circle"));
             $("#choosemid").trigger("click");
 
+            setTimeout(function(){$("#rewards").removeClass("hidden")},300);
             return;
         }
 
-        processnavs(navs);
+        processnavs( $(".circle nav label"));
     },
     "click #resizer": function(e){
         var icons = $(".circle label");
@@ -34,15 +35,16 @@ Template.body.events({
         $("#resizer").prop('checked' , false);
         $("#closer").addClass("hidden");
         $("#center-content").addClass("hidden");
+        $("#body-cover").trigger("click");
         resetcircle($("#circle"));
     },
     "click .circle label": function(e){
         var target = $(e.target);
-        console.log(target);
+
         if(target.prop('tagName') != "LABEL"){
             target = target.parent();
         }
-        console.log(target);
+
         var circle = $("#circle");
         if(target.attr('for') == "choosebottom"){
             circle.addClass('navonbottom');
@@ -69,19 +71,34 @@ Template.body.events({
         }
     },
     "click #topside": function(e){
+        if($("#resizer").prop('checked')){
+            $("#closer").trigger('click');
+        }
         if(!$("#toggler").prop("checked")){
             $("#clicker").trigger("click");
+
+            processnavs($(".circle nav label"));
         }
-        processnavs($(".circle nav"));
-        $("#bakeslide").trigger("click");
+
+
+
         Template.instance().side.set( 1);
+        $("#bakeslide").trigger("click");
+
+
     },
     "click #bottomside": function(e){
+        if($("#resizer").prop('checked')){
+            $("#closer").trigger('click');
+        }
         if(!$("#toggler").prop("checked")){
             $("#clicker").trigger("click");
+
+            processnavs($(".circle nav label"));
         }
-        processnavs($(".circle nav"));
         $("#restslide").trigger("click");
+
+
         Template.instance().side.set(-1);
     },
     "click #body-cover" : function(e){
@@ -102,11 +119,12 @@ Template.body.events({
 
     "click #menu-rest button" : function(e,t){
         window.popup.set($(e.target).data('template'));
-        console.log($(e.target));
-        console.log($(e.target).data('template'));
-        console.log(window.popup.get());
+
         $('#popin').addClass("seeable");
         $('#body-cover').addClass("covering");
+        setTimeout(function(){
+            $("#closer").removeClass("hidden");
+        }, 300);
     },
     "click .nav-about" :function(){
         Template.instance().tab.set("aboutus");
@@ -124,11 +142,27 @@ Template.body.events({
         Template.instance().tab.set("rewards");
     },
     "click #additem" : function(e,t){
+        e.preventDefault();
         window.orders.insert({
             name : "",
             amount: 0
         });
-    }
+    },
+    "click #ordersubmit" : function(){
+        e.preventDefault();
+        $("#order").submit();
+    },
+    "submit #reserve" : function(e,t){
+        e.preventDefault();
+        var form = e.target;
+        var elements = form.elements;
+        window.popup.set("confirm2");
+        $('#popin').addClass("seeable");
+        $('#body-cover').addClass("covering");
+        for( var i = 0; i< elements.length; i++){
+            elements[i].value = "";
+        }
+    },
 
 
 });
@@ -155,14 +189,15 @@ function processnavs(navs){
     if ($("#toggler").prop('checked')) {
 
             for (var i = 0; i < navs.length; i++) {
-                $(navs[i]).addClass("viewable");
-
+                $(navs[i]).removeClass("hidden");
+                $(navs[i]).addClass("animate-circle");
             }
 
     } else  {
 
         for (var j = 0; j < navs.length; j++) {
-            $(navs[j]).removeClass("viewable");
+            $(navs[j]).addClass("hidden");
+            $(navs[j]).removeClass("animate-circle");
 
         }
 
@@ -173,8 +208,14 @@ function processnavs(navs){
 Template.menuitem.events({
     "click .menuitem"  : function(e,t){
         window.popup.set('itemdetails');
-        console.log(this);
+
         Session.set('data', this );
+        $('#popin').addClass("seeable");
+        $('#body-cover').addClass("covering");
+
+        setTimeout(function(){
+            $("#closer").removeClass("hidden");
+        }, 300);
     },
 
 });
@@ -195,6 +236,7 @@ Template.itemdetails.events({
         }
         else{
             $('#body-cover').trigger("click");
+            $("#closer").addClass("hidden");
         }
     }
 });
@@ -206,6 +248,12 @@ Template.item.events({
 });
 
 Template.confirm.events({
+    "click button" : function(){
+        $('#body-cover').trigger("click");
+    }
+});
+
+Template.confirm2.events({
     "click button" : function(){
         $('#body-cover').trigger("click");
     }

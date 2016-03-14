@@ -1,4 +1,7 @@
 Meteor.startup(function () {
+    Bakery.remove({});
+    Menu.remove({});
+    Reviews.remove({});
     if (Bakery.find().count() === 0) {
         var items = [
             {
@@ -53,7 +56,7 @@ Meteor.startup(function () {
                 carb: 15,
                 protein: 2,
                 descrip: 'Creamy, chocolate filling inside of a crispy gluten free pastry bowl',
-                img: "/img/tart.jpg "
+                img: "/img/tart.jpg"
             },
             {
                 name: "Tricolor Mocha Latte",
@@ -62,7 +65,7 @@ Meteor.startup(function () {
                 carb: 34,
                 protein: 3,
                 descrip: 'A refreshing blast of caffeine at any time of the day',
-                img: "/img/"
+                img: "/img/latte.jpg"
             },
 
         ];
@@ -208,5 +211,30 @@ Meteor.startup(function () {
             _.each(items, function (item) {
                 Menu.insert(item);
             });
+    }
+    if (Reviews.find().count() === 0) {
+        items = [
+            {
+                name : "Wendy U.",
+                text: "The food was delicious! I got the chicken dish and my son got mac and cheese. Next time we’ll bring the rest of the family!"
+            },
+            {
+                name : "Justin K.",
+                text: "the acai bowl was surprisingly filling! It’s kind of like frozen yogurt with a healthy twist. 5/5 would recommend"
+
+            },
+            {
+                name: "Matthew M.",
+                text:"Came here with my friend and tried the peach and tomato salad. Definitely needs some getting used to for me but my friend liked it. I’ll have to come again and try out some of the bakery goods"
+            },
+            {
+                name: "James W.",
+                text:"Dropped by for my lunch break and it was packed! Almost didn’t make it back on time. Had to Grab a panini and go. Aside from the time, the gluten free bread was a plus."
+            }
+
+        ];
+        _.each(items, function (item) {
+            Reviews.insert(item);
+        });
     }
 });

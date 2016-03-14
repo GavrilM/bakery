@@ -1,7 +1,7 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>Neo Bake</title>
+    <title>Clean Plate | Gluten Free Dining</title>
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -21,18 +21,18 @@
       {{>Template.dynamic template = popup data = getdata }}
   </div>
     <header>
-    Clean Plate: {{gettab}}
+    Clean Plate - {{gettab}}
 </header>
 
 <div class="animate-hide animate-container">
   <div class="animate-item animate-inout">
     <h1 class="">Welcome</h1>
   <h1 class="">To</h1>
-  <h1 class="">Clean Plate!</h1>
+  <h1 class="">Clean Plate</h1>
   </div>
   <div class="animate-inout animate-inter ">
-      <h1>A Gluten-Free</h1>
-      <h1>Establishment!</h1>
+      <h1>A Gluten Free</h1>
+      <h1>Establishment</h1>
   </div>
   <h1 class="animate-inout animate-fourth">Both a</h1>
   
@@ -61,11 +61,13 @@
           <input type="radio" name="topview" id="topview3"/>
           <div class="slider-content">
             <form class="slider-item flex-center" id="order">
+                <h1>Order to your heart's content.</h1>
+                <input type="text" placeholder="Name?" required>
                 {{#each order}}
                     {{> item}}
                 {{/each}}
                 <button id="additem" >+</button>
-                <input type="submit" value="Here's my order!">
+                <button id="ordersubmit" class="submet">Submit</button>
             </form>
             <div class="slider-item" id="bakery">
                 <div class="flex-center">
@@ -116,11 +118,14 @@
           <input type="radio" name="bottomview" id="bottomview2" checked/>
           <input type="radio" name="bottomview" id="bottomview3"/>
           <div class="slider-content" >
-            <form class="slider-item flex-around" id="reserve">
-                <input type="text" placeholder="Name">
-                <input type="text" id = "datetimepicker" >
-                <input type="number" min="0" placeholder="Size of Party">
-                <label for="extraroom"></label><input type="checkbox" id="extraroom">
+            <form class="slider-item flex-center" id="reserve">
+                <h1>Reserve a great meal.</h1>
+                <input type="text" placeholder="Name" required>
+                <input type="date" id = "datetimepicker" required>
+                <input type="time" required>
+                <input type="number" min="0" placeholder="Size of Party" required>
+                <div><label for="extraroom">Party Room?</label><input type="checkbox" id="extraroom"></div>
+                <button class="submet">Submit</button>
             </form>
             <div class="slider-item" id="restaurant">
                 <div class="flex-center">
@@ -139,9 +144,9 @@
             </div>
             <div class="slider-item flex-around" id="menu-rest">
               <label for="choosetop" class="switchmenu">Other Menu?</label>
-                <button data-template="entrees">Entrees</button>
-                <button data-template="salads">Salads</button>
-                <button data-template="kids">Kid's</button>
+                <button class="submet" data-template="entrees">Entrees</button>
+                <button class="submet" data-template="salads">Salads</button>
+                <button class="submet" data-template="kids">Kids</button>
             </div>
           </div>
         </div>
@@ -154,23 +159,24 @@
 					    <input name="resizer" type= "checkbox" id="resizer" unchecked>
     <span id="closer" class="lnr lnr-cross hidden"></span>
     <div class="circle flex-center animate-circle" id="circle">
+        <div class="bg-cover"></div>
       <nav style = "transition: display 300ms ease;">
         							<ul class="flex-center">
                                         {{#if ontop}}
-                                          <label class="nav-expand nav-contact" for="resizer"></label>
-                                          <label class="nav-expand nav-rewards" for="resizer"></label>
+                                            <label for="choosebottom" data-template="2" id="restslide" class="nav-item nav-restaurant animate-label-0"></label>
+
                                         {{else}}
                                             {{#if onmid}}
-        								<label for="choosetop" data-template="1" class="nav-item nav-order"></label>
-                                        <label class="nav-expand nav-rewards" for="resizer"></label>
-                                                <label for="choosetop" data-template="2" id="bakeslide" class="nav-item nav-bakery" style="display: none !important;"> </label>
+
+                                        <label class="nav-expand nav-rewards hidden animate-label-0" for="resizer" id="rewards"></label>
+                                                <label for="choosetop" data-template="2" id="bakeslide" class="nav-item nav-bakery hidden" style="display: none !important;"> </label>
                                                 {{else}}
-                                        <label for="choosetop" data-template="1" class="nav-item nav-order"></label>
-        								<label for="choosetop" data-template="2" id="bakeslide" class="nav-item nav-bakery"> </label>
+
+        								<label for="choosetop" data-template="2" id="bakeslide" class="nav-item nav-bakery  animate-label-0"> </label>
                                                 {{/if}}
                                             {{/if}}
-                                       <label class="nav-expand nav-about" for="resizer"></label>
-                                        <label class="nav-expand nav-why" for="resizer"></label>
+                                       <label class="nav-expand nav-about hidden animate-label-1" for="resizer"></label>
+                                        <label class="nav-expand nav-why hidden animate-label-2" for="resizer"></label>
         
         								
         							</ul>
@@ -181,21 +187,13 @@
                                 </div>
         						<nav>
         							<ul  class="flex-center">
-                                        <label for="choosetop" data-template="3" class="nav-item nav-menu"></label>
-                                        <label class="nav-expand nav-reviews" for="resizer"></label>
-                                        {{#if onbottom}}
+                                        <label for="choosetop" data-template="3" class="nav-item nav-menu hidden animate-label-3"></label>
+                                        <label class="nav-expand nav-reviews hidden animate-label-4" for="resizer"></label>
+                                         <label class="nav-expand nav-contact hidden animate-label-5"  for="resizer"></label>
 
-                                            <label class="nav-expand nav-rewards" for="resizer"></label>
-                                            <label class="nav-expand nav-contact" for="resizer"></label>
-                                        {{else}}
                                             {{#if onmid}}
-                                                <label for="choosebottom" data-template="2" id="restslide" class="nav-item nav-restaurant" style="display: none !important;"></label>
-                                                <label for="choosebottom" data-template="1" class="nav-item nav-reserve"></label>
-                                                <label class="nav-expand nav-contact" for="resizer"></label>
-                                            {{else}}
-                                                <label for="choosebottom" data-template="2" id="restslide" class="nav-item nav-restaurant"></label>
-                                                <label for="choosebottom" data-template="1" class="nav-item nav-reserve"></label>
-                                            {{/if}}
+                                                <label for="choosebottom" data-template="2" id="restslide" class="nav-item nav-restaurant hidden" style="display: none !important;"></label>
+
                                         {{/if}}
 
         							</ul>

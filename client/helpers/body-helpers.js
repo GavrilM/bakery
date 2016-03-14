@@ -16,10 +16,10 @@ Template.body.helpers({
         return Template.instance().tab.get();
     },
     gettab: function(){
-        if($("#choosetop").prop("checked")){
+        if(Template.instance().side.get() >0){
             return "Bakery"
         }
-        else if($("#choosebottom").prop("checked")){
+        else if(Template.instance().side.get() <0){
             return "Restaurant";
         }
         else{
@@ -33,19 +33,19 @@ Template.body.helpers({
         return Bakery.find();
     },
     getdata : function(){
-        console.log(Session.get("data"));
+
         return Session.get("data");
     },
     ontop : function(){
-        console.log(Template.instance().side.get());
+
         return Template.instance().side.get() >0;
     },
     onmid : function(){
-        console.log(Template.instance().side.get());
+
         return Template.instance().side.get() == 0;
     },
     onbottom : function(){
-        console.log(Template.instance().side.get());
+
         return Template.instance().side.get() < 0;
     },
     order: function(){
@@ -68,6 +68,12 @@ Template.entrees.helpers({
 Template.kids.helpers({
     kids : function(){
         return Menu.find({type: "kids"});
+    }
+});
+
+Template.reviews.helpers({
+    reviews : function(){
+        return Reviews.find({});
     }
 });
 

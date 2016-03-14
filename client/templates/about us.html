@@ -20,8 +20,8 @@
         <h1>Why Gluten Free?</h1>
         <p>
             Gluten is a general name for proteins found in wheat, rye,
-            barley, and triticale. Gluten acts as the “glue” that holds
-            together the ingredients that make up foods. 1% of Americans
+            barley, and triticale, and acts as the “glue” that holds
+            food together. 1% of Americans
             have a genetic, autoimmune disorder called celiac disease,
             which can cause problems for their small intestine if they
             digest gluten products. However, other people have chosen
@@ -30,25 +30,35 @@
             have restricted diets or would just simply like to try out
             a new style of food.
         </p>
-           <p>The health of our customers is one of the driving forces
-               of our business. It is reasonable thinking that a community
-               that is alive and energized will be just as positive and
-               productive. From children to senior citizens, all members of
-               the community should know how clean, healthy food should taste
-               like. As providers, we care the most for tending to the people
-               around us so that they can reach their highest potential. It all
-               starts with what they eat.</p>
 
 
     </div>
 </template>
 
 <template name="contact">
-
+    <h1>Contact Us!</h1>
+    <form action="" id="contact" class=" flex-center">
+        <input type="text" placeholder="Name?">
+        <input type="email">
+        <textarea name="message" id="" cols="30" rows="10"></textarea>
+        <button>Submit</button>
+    </form>
+    <div class="flex-around">
+        <h3>Built by Valencia HS FBLA | </h3>
+        <h3>Gavril Moniaga, Justin Oh, Chelsea Marasigan | </h3>
+        <h3>Website Design, California | </h3>
+        <a style="color: white;" href="https://drive.google.com/file/d/0Bz4j97vg9k5scXJjU3p6VFpsVVk/view?usp=sharing">Attributions</a>
+    </div>
+    
 </template>
 
 <template name="reviews">
-
+    <div class="flex-around">
+        <h1>Hear the Buzz!</h1>
+        {{#each reviews}}
+            {{> review}}
+        {{/each}}
+    </div>
 </template>
 
 <template name="rewards">
@@ -71,7 +81,7 @@
 </template>
 
 <template name="item">
-    <div class="item">
+    <div class="item flex-center">
     <label for="">Item Name: </label><input type="text" value = {{name}}>
         <label for="">Quantity:</label> <input type="number" min = 0 max = 100 value={{amount}}><span class="lnr lnr-cross"></span>
     </div>
@@ -87,14 +97,28 @@
 </template>
 
 <template name="itemdetails">
+    <div class="itemdetails ">
+
     <button class="backbutton">Back</button>
     <h3>{{name}}</h3>
+        <div class="flex-center">
     <img alt="Picture" src={{img}} >
-    Calories: {{calories}}
+    Calories: {{calories}}<br>
+            Fat: {{fat}}g<br>
+            Carbs: {{carb}}g<br>
+            Protein: {{protein}}g<br>
+        </div>
+        <h3>{{descrip}}</h3>
+    </div>
 </template>
 
 <template name="confirm">
     <h1>Success! Swing by in about 15 minutes to pick up your order.</h1>
+    <button>OK</button>
+</template>
+
+<template name="confirm2">
+    <h1>Success! Mark your calendar for a night of great cuisine.</h1>
     <button>OK</button>
 </template>
 
@@ -114,4 +138,14 @@
     {{#each kids}}
         {{> menuitem}}
     {{/each}}
+</template>
+
+<template name="review">
+    <div class="review">
+
+    <blockquote>{{text}}</blockquote>
+    <i>-{{name}}</i>
+        <hr>
+    </div>
+
 </template>
