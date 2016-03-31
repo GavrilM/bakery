@@ -163,6 +163,18 @@ Template.body.events({
             elements[i].value = "";
         }
     },
+    "submit #contact" : function(e,t){
+        e.preventDefault();
+        var form = e.target;
+        var elements = form.elements;
+        for( var i = 0; i< elements.length; i++){
+            elements[i].value = "";
+        }
+        alert("Thank You!");
+    },
+    "click .btn-share" : function(){
+        $('.social-list').toggleClass('active');
+    }
 
 
 });

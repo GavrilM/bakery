@@ -1,4 +1,4 @@
-
+@import url(http://weloveiconfonts.com/api/?family=entypo);
 @font-face {
     font-family: Walkway-bold;
     src: url("/Walkway UltraBold.ttf") format("truetype");
@@ -33,7 +33,7 @@ h1{
 p{
   font-family: brewery;
   line-height: 1.5em;
-  margin: 5vw;
+  margin: 2vw;
 }
 header {
   top: 0;
@@ -502,6 +502,19 @@ Center stuff
 .review{
   max-width: 350px;
 }
+.full-width-center{
+  width:100%;
+  text-align: center;
+}
+
+.anotherformcontainer{
+  left: 10vw;
+  position:absolute;
+  max-width: 50px !important;
+}
+.preference{
+  flex-grow: 4;
+}
 /*--------------------------*/
 /* Circle */
 /*--------------------------*/
@@ -966,3 +979,78 @@ Animate
   }
 }
 
+
+
+
+
+
+
+
+/* brandico */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+ul{
+  list-style: none;
+  margin: 0;
+}
+
+.social-media{
+  position: relative;
+}
+
+.btn-share{
+  background-color: #428bca;
+  border-color: #357ebd;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 100px;
+  position: absolute; top: 0; left: 0;
+  text-align: center;
+  padding: 0 20px;
+  z-index: 10;
+  transition: color 0.2s linear 0s;
+}
+
+.btn-share:hover{
+  background: #3a75a5;
+}
+
+.social-list li {
+  margin: 15px;
+
+  color:white;
+  left: 0;
+  top: 8px;
+  z-index: 5;
+  transition: all 0.2s linear 0s;
+}
+
+.social-list.active li {
+  opacity: 1;
+}
+
+li.item-1 {
+  left: 170px;
+}
+li.item-2 {
+  left: 310px;
+}
+li.item-3 {
+  left: 450px;
+}
+li.item-4 {
+  left: 590px;
+}
+
+.social-link{
+  color: white;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.social-link{transition: opacity 0.2s linear 0s;}
+
+.social-link:hover{opacity: .6;}
